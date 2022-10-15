@@ -1,5 +1,8 @@
 import * as THREE from "three";
+import { MeshSurfaceSampler } from "three/examples/jsm/math/MeshSurfaceSampler";
 import Experience from "@Experience/Experience.js";
+// import vertex from "../Shaders/vertexShader.glsl";
+// import fragment from "../Shaders/fragmentShader.glsl";
 
 export default class Fox {
   constructor() {
@@ -21,14 +24,18 @@ export default class Fox {
 
   setModel() {
     this.model = this.resource.scene;
-    this.model.scale.set(0.02, 0.02, 0.02);
-    this.scene.add(this.model);
-
+    this.model.scale.set(0.03, 0.03, 0.03);
     this.model.traverse((child) => {
       if (child instanceof THREE.Mesh) {
         child.castShadow = true;
       }
     });
+    this.particlesMaterial = new THREE.PointsMaterial({
+      color: "red",
+      size: 0.01,
+    });
+
+    this.scene.add(this.model);
   }
 
   setAnimation() {

@@ -8,41 +8,23 @@ export default class Floor {
     this.resources = this.experience.resources;
 
     this.setGeometry();
-    this.setTextures();
     this.setMaterial();
     this.setMesh();
   }
 
   setGeometry() {
-    this.geometry = new THREE.SphereGeometry(26, 32, 32);
-  }
-
-  setTextures() {
-    this.textures = {};
-
-    this.textures.color = this.resources.items.dirtColorTexture;
-    this.textures.color.encoding = THREE.sRGBEncoding;
-    this.textures.color.repeat.set(15, 15);
-    this.textures.color.wrapS = THREE.RepeatWrapping;
-    this.textures.color.wrapT = THREE.RepeatWrapping;
-
-    this.textures.normal = this.resources.items.dirtNormalTexture;
-    this.textures.normal.repeat.set(15, 15);
-    this.textures.normal.wrapS = THREE.RepeatWrapping;
-    this.textures.normal.wrapT = THREE.RepeatWrapping;
+    this.geometry = new THREE.PlaneGeometry(15, 15);
   }
 
   setMaterial() {
-    this.material = new THREE.MeshStandardMaterial({
-      map: this.textures.color,
-      normalMap: this.textures.normal,
+    this.material = new THREE.MeshPhongMaterial({
+      color: 0x333333,
     });
   }
   setMesh() {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.rotation.x = -Math.PI / 2;
     this.mesh.receiveShadow = true;
-    this.mesh.position.set(0, -26, 0);
     this.scene.add(this.mesh);
   }
 }

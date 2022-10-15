@@ -8,7 +8,8 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^2.9.9"
+    "vite": "^3",
+    "vite-plugin-glsl": "^0.5.1"
   },
   "dependencies": {
     "lil-gui": "^0.16.1",

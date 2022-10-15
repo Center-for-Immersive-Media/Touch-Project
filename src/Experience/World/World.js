@@ -16,7 +16,6 @@ export default class World {
       this.floor = new Floor();
       this.fox = new Fox();
       this.enviorment = new Environment();
-      this.videoSphere = new VideoSphere();
     });
   }
 
