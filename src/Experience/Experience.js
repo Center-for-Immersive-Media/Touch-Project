@@ -7,7 +7,9 @@ import Renderer from "@Experience/Renderer";
 import World from "@World/World.js";
 import Resources from "@Utils/Resources.js";
 import Debug from "@Utils/Debug.js";
+import Touch from "@Utils/Touch.js";
 
+//  Loads content
 import Sources from "@Experience/sources.js";
 
 //  Instancing is for singletons
@@ -35,6 +37,7 @@ export default class Experience {
     this.camera = new Camera();
     this.renderer = new Renderer();
     this.world = new World();
+    this.touch = new Touch();
     // this.vr = new VR();
 
     this.sizes.on("resize", () => {

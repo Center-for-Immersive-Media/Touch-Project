@@ -10,7 +10,7 @@ export default class Camera {
     this.canvas = this.experience.canvas;
 
     this.setInstace();
-    this.setOrbitControls();
+    // this.setOrbitControls();
   }
 
   setInstace() {
@@ -20,14 +20,15 @@ export default class Camera {
       4,
       100
     );
-    this.instance.position.set(6, 4, 8);
+    this.instance.position.set(0, 0, 8);
+    this.instance.lookAt(0, 0, 0);
     this.scene.add(this.instance);
   }
 
-  setOrbitControls() {
-    this.controls = new OrbitControls(this.instance, this.canvas);
-    this.controls.enableDamping = true;
-  }
+  // setOrbitControls() {
+  //   this.controls = new OrbitControls(this.instance, this.canvas);
+  //   this.controls.enableDamping = true;
+  // }
 
   resize() {
     this.instance.aspect = this.sizes.width / this.sizes.height;
@@ -35,6 +36,6 @@ export default class Camera {
   }
 
   update() {
-    this.controls.update();
+    // this.controls.update();
   }
 }

@@ -2,7 +2,7 @@ import * as THREE from "three";
 import Experience from "@Experience/Experience.js";
 
 import Environment from "@World/Environment.js";
-import Floor from "@World/Floor";
+import Background from "@World/Background";
 import VideoSphere from "@World/VideoSphere.js";
 import Fox from "@World/Fox";
 
@@ -13,8 +13,8 @@ export default class World {
     this.resources = this.experience.resources;
 
     this.resources.on("loaded", () => {
-      this.floor = new Floor();
-      this.fox = new Fox();
+      // this.fox = new Fox();
+      this.floor = new Background();
       this.enviorment = new Environment();
     });
   }
